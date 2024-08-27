@@ -34,10 +34,21 @@ cipher = {
     '.': '%' 
 }
 
-encrypted_file = open("encrypted_message_one.txt", 'r')
+encrypted_file = open("encrypted_message_one", 'r')
 
 encrypted_message = encrypted_file.readline()
+
+#print(encrypted_message)
 
 encrypted_file.close()
 
 # Write code below
+
+cipher_keys = ''.join(cipher.keys())
+cipher_values = ''.join(cipher.values())
+
+translation_table = str.maketrans(cipher_values,cipher_keys)
+
+decrypted_message = encrypted_message.translate(translation_table)
+
+print(decrypted_message)
